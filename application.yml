@@ -12,6 +12,23 @@ spring:
     username: postgres
     password: '{cipher}1747e10d9edbd134e86c135afd49248213930ec18dbafe8a44147e2745d74ce0'
 
+  cloud:
+    stream:
+      bindings:
+        createEvent:
+          destination: yoke-create-event
+          producer:
+            partition-count: 3
+        deleteEvent:
+          destination: yoke-delete-event
+          producer:
+            partition-count: 3
+
+      kafka:
+        binder:
+          brokers: localhost:9092
+          autoAddPartitions: true
+          
 server:
   port: 8583
 

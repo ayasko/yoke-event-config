@@ -1,20 +1,9 @@
 spring:
-  jpa:
-    database: POSTGRESQL
-    show-sql: true
-    generate-ddl: true
-    hibernate:
-      ddl-auto: create
-
   datasource:
-    platform: postgres
     url: jdbc:postgresql://yoke-postgres:5432/postgres
-    username: postgres
-    password: '{cipher}1747e10d9edbd134e86c135afd49248213930ec18dbafe8a44147e2745d74ce0'
-
-server:
-  port: 8583
-
-yoke:
-  notify:
-    url: http://yoke-notify/event
+    
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: yoke-kafka:9092
