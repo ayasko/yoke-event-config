@@ -28,7 +28,10 @@ spring:
         binder:
           brokers: localhost:9092
           autoAddPartitions: true
-          
+      
+  zipkin:
+    baseUrl: http://localhost:9411
+      
 server:
   port: 8583
 
